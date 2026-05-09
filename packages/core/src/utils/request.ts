@@ -1,5 +1,22 @@
 import { ProxyAgent } from "undici";
-import { UnifiedChatRequest } from "../types/llm";
+import { LLMProvider, UnifiedChatRequest } from "../types/llm";
+
+// Resolve which proxy URL (if any) should be used for a given provider request.
+// Provider-level `proxy` overrides the global proxy:
+//   - string with content → use that URL
+//   - explicit false or empty string → bypass proxy (direct connection)
+//   - undefined → fall back to the global proxy
+export function resolveProviderProxy(
+  provider: Pick<LLMProvider, "proxy"> | undefined | null,
+  globalProxy: string | undefined
+): string | undefined {
+  const providerProxy = provider?.proxy;
+  if (providerProxy === false) return undefined;
+  if (typeof providerProxy === "string") {
+    return providerProxy.trim() === "" ? undefined : providerProxy;
+  }
+  return globalProxy;
+}
 
 export function sendUnifiedRequest(
   url: URL | string,

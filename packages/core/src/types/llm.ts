@@ -202,6 +202,11 @@ export interface LLMProvider {
   baseUrl: string;
   apiKey: string;
   models: string[];
+  // Per-provider proxy override:
+  //   string  → use this proxy URL for this provider
+  //   false / "" → bypass proxy even if a global one is configured
+  //   undefined → inherit global PROXY_URL / HTTPS_PROXY
+  proxy?: string | false;
   transformer?: {
     [key: string]: {
       use?: Transformer[];
@@ -230,6 +235,8 @@ export interface ConfigProvider {
   api_base_url: string;
   api_key: string;
   models: string[];
+  // See LLMProvider.proxy for semantics
+  proxy?: string | false;
   transformer: {
     use?: string[] | Array<any>[];
   } & {

@@ -5,7 +5,7 @@ import {
   FastifyReply,
 } from "fastify";
 import { RegisterProviderRequest, LLMProvider } from "@/types/llm";
-import { sendUnifiedRequest } from "@/utils/request";
+import { sendUnifiedRequest, resolveProviderProxy } from "@/utils/request";
 import { createApiError } from "./middleware";
 import { version } from "../../package.json";
 import { ConfigService } from "@/services/config";
@@ -354,7 +354,7 @@ async function sendRequestToProvider(
     url,
     requestBody,
     {
-      httpsProxy: fastify.configService.getHttpsProxy(),
+      httpsProxy: resolveProviderProxy(provider, fastify.configService.getHttpsProxy()),
       ...config,
       headers: JSON.parse(JSON.stringify(requestHeaders)),
     },

@@ -64,7 +64,29 @@ Detailed guide for configuring LLM providers.
 | `HOST` | string | Yes | API base URL |
 | `APIKEY` | string | Yes | API authentication key |
 | `MODELS` | string[] | No | List of available models |
+| `proxy` | string \| false | No | Per-provider proxy override (see below) |
 | `transformers` | string[] | No | List of transformers to apply |
+
+## Per-provider proxy
+
+Each provider can override the global `PROXY_URL` via its own `proxy` field:
+
+| `proxy` value | Behavior |
+| --- | --- |
+| Not set (`undefined`) | Inherit the global `PROXY_URL` / `HTTPS_PROXY` |
+| String URL | Override: this provider uses that proxy |
+| `false` or `""` | Bypass: connect directly even when a global proxy is set |
+
+```json
+{
+  "PROXY_URL": "http://127.0.0.1:7890",
+  "Providers": [
+    { "name": "openai",     "api_base_url": "...", "api_key": "...", "models": ["gpt-4o"] },
+    { "name": "deepseek",   "api_base_url": "...", "api_key": "...", "models": ["deepseek-chat"], "proxy": false },
+    { "name": "internal",   "api_base_url": "...", "api_key": "...", "models": ["llama-3.1-70b"], "proxy": "http://corp-gateway:3128" }
+  ]
+}
+```
 
 ## Model Selection
 

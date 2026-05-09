@@ -14,10 +14,11 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { X, Trash2, Plus, Eye, EyeOff, Search, XCircle } from "lucide-react";
+import { X, Trash2, Plus, Eye, EyeOff, Search, XCircle, Globe, Ban, Network } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Combobox } from "@/components/ui/combobox";
 import { ComboInput } from "@/components/ui/combo-input";
+import { Switch } from "@/components/ui/switch";
 import { api } from "@/lib/api";
 import type { Provider } from "@/types";
 
@@ -633,6 +634,70 @@ export function Providers() {
                 {apiKeyError && (
                   <p className="text-sm text-red-500">{apiKeyError}</p>
                 )}
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <Label htmlFor="proxy">{t("providers.proxy")}</Label>
+                  {(() => {
+                    const p = editingProvider.proxy;
+                    if (p === false || p === "") {
+                      return (
+                        <Badge variant="outline" className="gap-1 border-amber-300 bg-amber-50 text-amber-700">
+                          <Ban className="h-3 w-3" />
+                          {t("providers.proxy_status_bypass")}
+                        </Badge>
+                      );
+                    }
+                    if (typeof p === "string" && p.trim()) {
+                      return (
+                        <Badge variant="outline" className="gap-1 border-emerald-300 bg-emerald-50 text-emerald-700">
+                          <Network className="h-3 w-3" />
+                          {t("providers.proxy_status_override")}
+                        </Badge>
+                      );
+                    }
+                    return (
+                      <Badge variant="outline" className="gap-1 border-gray-300 bg-gray-50 text-gray-600">
+                        <Globe className="h-3 w-3" />
+                        {t("providers.proxy_status_inherit")}
+                      </Badge>
+                    );
+                  })()}
+                </div>
+                <div className="rounded-md border p-3 space-y-3 bg-gray-50/50">
+                  <Input
+                    id="proxy"
+                    placeholder={t("providers.proxy_placeholder")}
+                    disabled={editingProvider.proxy === false}
+                    value={typeof editingProvider.proxy === "string" ? editingProvider.proxy : ""}
+                    onChange={(e) => {
+                      if (!editingProviderData) return;
+                      const value = e.target.value;
+                      setEditingProviderData({
+                        ...editingProviderData,
+                        proxy: value === "" ? undefined : value,
+                      });
+                    }}
+                    className="bg-white"
+                  />
+                  <div className="flex items-center justify-between">
+                    <div className="flex flex-col">
+                      <span className="text-sm font-medium">{t("providers.proxy_bypass")}</span>
+                      <span className="text-xs text-gray-500">{t("providers.proxy_bypass_hint")}</span>
+                    </div>
+                    <Switch
+                      checked={editingProvider.proxy === false}
+                      onCheckedChange={(checked) => {
+                        if (!editingProviderData) return;
+                        setEditingProviderData({
+                          ...editingProviderData,
+                          proxy: checked ? false : undefined,
+                        });
+                      }}
+                    />
+                  </div>
+                  <p className="text-xs text-gray-500 leading-relaxed">{t("providers.proxy_help")}</p>
+                </div>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="models">{t("providers.models")}</Label>

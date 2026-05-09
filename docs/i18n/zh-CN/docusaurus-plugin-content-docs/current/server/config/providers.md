@@ -138,7 +138,50 @@ sidebar_position: 2
 | `api_base_url` | string | 是 | API 基础 URL |
 | `api_key` | string | 是 | API 认证密钥 |
 | `models` | string[] | 否 | 可用模型列表 |
+| `proxy` | string \| false | 否 | 该提供商专用代理（详见下文） |
 | `transformer` | object | 否 | 应用的转换器配置 |
+
+## 代理（proxy）
+
+每个 provider 可以单独配置 `proxy` 来覆盖或忽略全局 `PROXY_URL`：
+
+| `proxy` 取值 | 行为 |
+| --- | --- |
+| 不写（`undefined`） | 继承全局 `PROXY_URL` |
+| 字符串 URL | 覆盖全局代理，本 provider 走该代理 |
+| `false` 或 `""` | 直连，忽略全局代理 |
+
+示例：
+
+```json
+{
+  "PROXY_URL": "http://127.0.0.1:7890",
+  "Providers": [
+    {
+      "name": "openai",
+      "api_base_url": "https://api.openai.com/v1/chat/completions",
+      "api_key": "$OPENAI_API_KEY",
+      "models": ["gpt-4o"]
+    },
+    {
+      "name": "deepseek",
+      "api_base_url": "https://api.deepseek.com/chat/completions",
+      "api_key": "$DEEPSEEK_API_KEY",
+      "models": ["deepseek-chat"],
+      "proxy": false
+    },
+    {
+      "name": "private-llm",
+      "api_base_url": "https://internal.corp/v1/chat/completions",
+      "api_key": "$INTERNAL_KEY",
+      "models": ["llama-3.1-70b"],
+      "proxy": "http://corp-gateway:3128"
+    }
+  ]
+}
+```
+
+上例中：openai 走全局代理；deepseek 直连；private-llm 走专属企业代理。
 
 ## 模型选择
 

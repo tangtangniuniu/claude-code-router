@@ -8,6 +8,11 @@ export interface Provider {
   api_base_url: string;
   api_key: string;
   models: string[];
+  // Per-provider proxy override:
+  //   string  → use this proxy URL for this provider
+  //   false / "" → bypass proxy even when a global one is set
+  //   undefined → inherit the global PROXY_URL
+  proxy?: string | false;
   transformer?: ProviderTransformer;
 }
 

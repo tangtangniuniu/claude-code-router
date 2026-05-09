@@ -105,7 +105,15 @@
     "api_key_required": "API Key is required",
     "name_required": "Name is required",
     "name_duplicate": "A provider with this name already exists",
-    "search": "Search providers..."
+    "search": "Search providers...",
+    "proxy": "Proxy URL (optional)",
+    "proxy_placeholder": "e.g. http://127.0.0.1:7890",
+    "proxy_bypass": "Bypass global proxy",
+    "proxy_bypass_hint": "Force a direct connection for this provider",
+    "proxy_help": "Leave the URL empty to inherit the global PROXY_URL. Fill in to override, or toggle the switch to disable proxy entirely for this provider.",
+    "proxy_status_inherit": "Inheriting global",
+    "proxy_status_override": "Custom proxy",
+    "proxy_status_bypass": "Direct (bypass)"
 
   },
   "router": {
