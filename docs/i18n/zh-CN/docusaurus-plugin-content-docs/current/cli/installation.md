@@ -43,4 +43,4 @@ ccr --version
 
 ## 下一步
 
-安装完成后，前往 [快速开始](/zh/docs/quick-start) 了解如何配置和使用路由器。
+安装完成后，前往 [快速开始](/docs/cli/quick-start) 了解如何配置和使用路由器。

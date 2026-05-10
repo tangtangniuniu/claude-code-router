@@ -122,5 +122,5 @@ Look for routing decisions to see which model is being selected.
 
 ## Next Steps
 
-- [Agents](/docs/advanced/agents) - Extend functionality with agents
-- [Presets](/docs/advanced/presets) - Use predefined configurations
+- [Architecture](/docs/server/advanced/architecture) - Routing system internals
+- [Presets](/docs/presets/intro) - Use predefined configurations

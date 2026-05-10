@@ -160,4 +160,12 @@ declare module "@musistudio/llms" {
     avgTimeToFirstToken: number;
     allSpeeds: number[];
   };
+
+  export const pluginManager: {
+    registerPlugin(plugin: any, options?: any): void;
+    enablePlugins(server: any): Promise<void>;
+    [key: string]: any;
+  };
+
+  export const tokenSpeedPlugin: any;
 }

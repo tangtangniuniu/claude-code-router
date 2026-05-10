@@ -51,10 +51,10 @@ claude code
 
 ## 下一步
 
-- [安装指南](/docs/installation) - 详细安装说明
-- [快速开始](/docs/quick-start) - 5 分钟入门
-- [配置](/docs/config/basic) - 了解如何配置路由器
-- [CLI 参考](/docs/cli/start) - 完整的 CLI 命令参考
+- [安装指南](/docs/cli/installation) - 详细安装说明
+- [快速开始](/docs/cli/quick-start) - 5 分钟入门
+- [配置](/docs/cli/config/basic) - 了解如何配置路由器
+- [CLI 参考](/docs/cli/commands/start) - 完整的 CLI 命令参考
 
 ## 架构
 

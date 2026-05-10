@@ -253,5 +253,5 @@ Please help me analyze this code...
 
 ## Next Steps
 
-- [Transformers](/docs/config/transformers) - Apply transformations to requests
-- [Custom Router](/docs/advanced/custom-router) - Advanced custom routing
+- [Transformers](/docs/server/config/transformers) - Apply transformations to requests
+- [Custom Router](/docs/server/advanced/custom-router) - Advanced custom routing

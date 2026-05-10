@@ -71,5 +71,5 @@ Or restart directly through the Web UI.
 ## What's Next?
 
 - [Basic Configuration](/docs/cli/config/basic) - Learn about configuration options
-- [Routing](/docs/cli/config/routing) - Configure smart routing rules
+- [Routing](/docs/server/config/routing) - Configure smart routing rules
 - [CLI Commands](/docs/category/cli-commands) - Explore all CLI commands

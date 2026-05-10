@@ -245,6 +245,6 @@ ccr activate       # 输出 shell 环境变量，便于集成
 
 ## 下一步
 
-- [提供商配置](/zh/docs/server/config/providers) — 含 `proxy` 字段的完整字段表
-- [自定义路由器](/zh/docs/server/advanced/custom-router) — 自己写 JS 路由
-- [预设格式](/zh/docs/server/advanced/preset-format) — 制作可分享的预设包
+- [提供商配置](/docs/server/config/providers) — 含 `proxy` 字段的完整字段表
+- [自定义路由器](/docs/server/advanced/custom-router) — 自己写 JS 路由
+- [预设格式](/docs/server/advanced/preset-format) — 制作可分享的预设包

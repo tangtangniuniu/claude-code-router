@@ -269,5 +269,5 @@ module.exports = async function(req, config) {
 
 ## 下一步
 
-- [转换器](/zh/docs/config/transformers) - 对请求应用转换
-- [自定义路由器](/zh/docs/advanced/custom-router) - 高级自定义路由
+- [转换器](/docs/server/config/transformers) - 对请求应用转换
+- [自定义路由器](/docs/server/advanced/custom-router) - 高级自定义路由

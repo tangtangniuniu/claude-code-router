@@ -77,6 +77,6 @@ ccr config edit
 
 ## 下一步
 
-- [基础配置](/zh/docs/config/basic) - 了解配置选项
-- [路由配置](/zh/docs/config/routing) - 配置智能路由规则
-- [CLI 命令](/zh/docs/cli/start) - 探索所有 CLI 命令
+- [基础配置](/docs/cli/config/basic) - 了解配置选项
+- [路由配置](/docs/server/config/routing) - 配置智能路由规则
+- [CLI 命令](/docs/cli/commands/start) - 探索所有 CLI 命令

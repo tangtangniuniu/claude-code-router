@@ -786,5 +786,5 @@ async transformRequestIn(request, provider, context) {
 ## Next Steps
 
 - [Advanced Topics](/docs/server/advanced/custom-router) - Advanced routing customization
-- [Agents](/docs/server/advanced/agents) - Extending with agents
+- [Architecture](/docs/server/advanced/architecture) - System internals
 - [Core Package](/docs/server/intro) - Learn about @musistudio/llms

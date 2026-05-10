@@ -104,5 +104,5 @@ deepseek,deepseek-chat
 
 ## Next Steps
 
-- [Routing Configuration](/docs/config/routing) - Configure how requests are routed
-- [Transformers](/docs/config/transformers) - Apply transformations to requests
+- [Routing Configuration](/docs/server/config/routing) - Configure how requests are routed
+- [Transformers](/docs/server/config/transformers) - Apply transformations to requests

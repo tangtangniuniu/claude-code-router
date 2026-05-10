@@ -251,5 +251,5 @@ deepseek,deepseek-chat
 
 ## 下一步
 
-- [路由配置](/zh/docs/config/routing) - 配置请求如何路由
-- [转换器](/zh/docs/config/transformers) - 对请求应用转换
+- [路由配置](/docs/server/config/routing) - 配置请求如何路由
+- [转换器](/docs/server/config/transformers) - 对请求应用转换

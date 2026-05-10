@@ -17,7 +17,7 @@
     "tsx": "tsx",
     "build": "tsx scripts/build.ts",
     "build:watch": "tsx scripts/build.ts --watch",
-    "dev": "nodemon",
+    "dev": "tsx scripts/build.ts --watch",
     "start": "node dist/cjs/server.cjs",
     "start:esm": "node dist/esm/server.mjs",
     "lint": "eslint src --ext .ts,.tsx"
